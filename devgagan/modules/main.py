@@ -32,7 +32,8 @@ async def single_link(_, message):
         if data and data.get("session"):
             session = data.get("session")
             try:
-                userbot = Client(":userbot:", api_id=API_ID, api_hash=API_HASH, session_string=session)
+                device = "Team SPY Server"
+                userbot = Client(":userbot:", api_id=API_ID, api_hash=API_HASH, session_string=session, device_model=device, workers=50, max_concurrent_transmissions=100)
                 await userbot.start()                
             except:
                 return await msg.edit_text("Please login in bot...")
@@ -86,7 +87,8 @@ async def batch_link(_, message):
         if data and data.get("session"):
             session = data.get("session")
             try:
-                userbot = Client(":userbot:", api_id=API_ID, api_hash=API_HASH, session_string=session)
+                device = "Team SPY Server"
+                userbot = Client(":userbot:", api_id=API_ID, api_hash=API_HASH, session_string=session, device_model=device, workers=50, max_concurrent_transmissions=100)
                 await userbot.start()                
             except:
                 return await app.send_message(message.chat.id, "Please generate a new session.")
