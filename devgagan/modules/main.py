@@ -15,9 +15,9 @@ from pyrogram.errors import FloodWait
 @app.on_message(filters.regex(r'https?://[^\s]+'))
 async def single_link(_, message):
     user_id = message.chat.id
-    lol = await chk_user(message, user_id)
-    if lol == 1:
-        return
+    # lol = await chk_user(message, user_id)
+    # if lol == 1:
+    #     return
     
     link = get_link(message.text) 
     
@@ -76,8 +76,8 @@ async def batch_link(_, message):
     l = last_id.split("/")[-1]
     cl = int(l)
 
-    if cl - cs > 1000:
-        await app.send_message(message.chat.id, "Only 1000 messages allowed in batch size... Make sure your start and end message have difference less than 1000")
+    if cl - cs > 10:
+        await app.send_message(message.chat.id, "Only 10 messages allowed in batch size... Make sure your start and end message have difference less than 10, to go beyond limit purchase premium just at INR 200/month.")
         return
     
     try:     
